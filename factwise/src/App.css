@@ -1,0 +1,293 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.user-list {
+    width: 100%;
+    max-width: 800px;
+}
+
+.accordion-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.user-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Change to column to stack image and details */
+    align-items: flex-start;
+    /* Align items to the left side */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-item.open .user-details {
+    max-height: 500px;
+    /* Adjust the height as needed */
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info>* {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.user-age {
+    color: #666;
+}
+
+.user-details {
+    max-height: 0;
+    overflow: hidden;
+    /* Add the following styles for the smooth sliding effect */
+    width: 100%;
+    transition: max-height 0.3s ease;
+}
+
+.user-details.open {
+    margin-top: 20px;
+    max-height: 500px;
+    /* Adjust the height as needed */
+}
+
+.user-details.open .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.user-gender,
+.user-age,
+.user-country,
+.user-description {
+    margin-bottom: 10px;
+}
+
+.user-gender label,
+.user-country label,
+.user-age label,
+.user-description label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 97%;
+    resize: vertical;
+}
+
+input[type='text'] {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 5px;
+}
+
+
+/* Add styles for user header */
+
+.user-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    width: 100%;
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+
+
+/* Update styles for user image */
+
+.user-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    /*max-width: 100%;
+    max-height: 100%;*/
+}
+
+.edit-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    margin-top: 10px;
+}
+
+
+/* Adjust styles for accordion icon */
+
+.accordion-icon {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.user-details.open .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.user-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.edit-icon {
+    width: 30px;
+    height: 30px;
+    color: darkblue;
+}
+
+.save-icon {
+    width: 30px;
+    height: 30px;
+    color: green;
+}
+
+.cancel-icon {
+    width: 30px;
+    height: 30px;
+    color: red;
+}
+
+.delete-icon {
+    width: 30px;
+    height: 30px;
+    color: #FF0000;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Modal Overlay */
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Modal */
+
+.modal {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    width: 100%;
+    padding: 10px;
+}
+
+
+/* Modal Header */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+
+/* Modal Body */
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Modal Footer */
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.delete-button,
+.cancel-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.cancel-button {
+    background-color: #3498db;
+    margin-left: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #2980b9;
+}
